@@ -1,4 +1,4 @@
-let map;  // Declare the map variable globally to handle it more easily
+let map; // Global variable for the map instance
 
 document.getElementById("getWeather").addEventListener("click", function () {
     const city = document.getElementById("city").value;
@@ -23,7 +23,7 @@ document.getElementById("getWeather").addEventListener("click", function () {
                 // Show the weather info
                 document.getElementById("errorMessage").style.display = "none";
                 document.getElementById("weatherInfo").style.display = "block";
-                document.getElementById("currentTemp").textContent = `${data.temperature} ${data.unit}`;
+                document.getElementById("currentTemp").textContent = `${data.temperature} ${data.unit}`; // Update temperature
 
                 // Display the city name above the temperature
                 document.getElementById("cityName").textContent = city;
@@ -132,6 +132,9 @@ function displayMap(lat, lon, city) {
         .bindPopup(`<b>${city}</b><br>Weather: ${city}`)
         .openPopup();
 }
+
+
+
 
 
 

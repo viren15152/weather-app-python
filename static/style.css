@@ -20,7 +20,7 @@ body {
 }
 
 .container {
-    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    background: linear-gradient(to right, rgba(12, 183, 234, 0.7), rgba(12, 183, 234, 0.9)), url('/static/background.png');
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -28,25 +28,20 @@ body {
     max-width: 900px;
     text-align: center;
     box-sizing: border-box;
+    background-size: cover;
+    background-position: center;
 }
 
 h1 {
     font-size: 36px;
     font-weight: bold;
-    color: #333;
+    color: whitesmoke;
     margin-bottom: 20px;
-}
-
-h2 {
-    font-size: 24px;
-    color: #333;
-    font-weight: bold;
-    margin-bottom: 10px;
 }
 
 input[type="text"] {
     padding: 12px;
-    width: 70%;
+    width: 80%;
     border: 2px solid #0cb7ea; /* Blue border */
     border-radius: 10px;
     font-size: 16px;
@@ -56,7 +51,7 @@ input[type="text"] {
 
 button {
     padding: 12px 30px;
-    background-color: #0cb7ea; /* Blue button */
+    background-color: rgb(64, 173, 64); /* Blue button */
     color: white;
     border: none;
     border-radius: 10px;
@@ -98,12 +93,6 @@ button:hover {
     height: 80px;
 }
 
-#errorMessage {
-    display: none;
-    color: #ff4d4d; /* Red for errors */
-    font-size: 16px;
-}
-
 /* Forecast Styling */
 #forecast {
     display: flex;
@@ -114,7 +103,7 @@ button:hover {
 .forecast-card {
     background-color: #ffffff;
     font-weight: bold;
-    color: grey;
+    color: #333;
     border-radius: 10px;
     padding: 20px;
     width: 18%;
@@ -144,20 +133,6 @@ button:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Weather Cards */
-.weather-card {
-    background-color: #0cb7ea; /* Blue background */
-    color: black;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-    margin-top: 20px;
-}
-
 /* Main content layout with weather info and map side by side */
 .main-content {
     display: flex;
@@ -170,14 +145,14 @@ button:hover {
 /* Weather Box Styling */
 .weather-box {
     flex: 1;
-    max-width: 45%;  /* Allow it to take up half of the width */
+    max-width: 45%;
 }
 
 /* Map Styling */
 .map-box {
     flex: 1;
-    max-width: 45%;  /* Same as weather box, ensure it stays beside the weather */
-    height: 400px;   /* Set a height to make the map visible */
+    max-width: 45%;
+    height: 400px;
 }
 
 #map {
@@ -206,12 +181,12 @@ button:hover {
     }
 
     .main-content {
-        flex-direction: column;  /* Stack the weather and map sections on smaller screens */
+        flex-direction: column;
         align-items: center;
     }
 
     .weather-box, .map-box {
-        max-width: 100%;  /* Allow them to take full width */
+        max-width: 100%;
     }
 }
 
@@ -228,6 +203,7 @@ button:hover {
         width: 100%;
     }
 }
+
 
 
 

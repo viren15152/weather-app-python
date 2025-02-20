@@ -3,20 +3,14 @@ import requests
 from flask import Flask, render_template, jsonify, request
 from dotenv import load_dotenv
 from datetime import datetime
-from flask_caching import Cache  # Importing Cache for caching
 
 # Initialize Flask
 app = Flask(__name__)
-
-# Set up cache config
-app.config['CACHE_TYPE'] = 'simple'
-cache = Cache(app)
 
 # Load environment variables from .env file
 load_dotenv()
 
 # Function to fetch current weather details
-@cache.cached(timeout=600, key_prefix='weather_data')
 def get_weather(city):
     api_key = os.getenv("OPENWEATHER_API_KEY")
     base_url = "http://api.openweathermap.org/data/2.5/weather?"
@@ -101,6 +95,7 @@ def weather():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
 
 
 
