@@ -3,37 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
+    <title>Weather Dashboard</title>
     <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 </head>
 <body>
     <div class="container">
         <h1>Weather Dashboard</h1>
+        <!-- Input for city search -->
         <input type="text" id="city" placeholder="Enter city" />
         <button id="getWeather">Get Weather</button>
 
-        <div id="weatherInfo" style="display:none;">
-            <div class="weather-card">
-                <h2 id="currentTemp">12.6°</h2>
-                <p id="description">Overcast Clouds</p>
-                <p id="feelsLike">Feels Like 12.27°</p>
-                <img id="weatherIcon" src="" alt="Weather Icon" />
+        <!-- Main content area: Weather info on the left and Map on the right -->
+        <div id="mainContent" class="main-content">
+            <!-- Weather Info Section -->
+            <div id="weatherInfo" style="display:none;" class="weather-box">
+                <h2 id="cityName">London</h2>  
+                <h1 id="currentTemp"></h1>
+                <p id="description"></p>
+                <p id="feelsLike"></p>
+                <img id="weatherIcon" />
             </div>
 
-            <!-- Display forecast dynamically in cards -->
-            <div id="forecast">
-                <!-- Forecast data will be inserted dynamically -->
+            <!-- Map Section -->
+            <div id="mapContainer" class="map-box">
+                <div id="map" style="height: 400px; width: 50%;"></div>
             </div>
         </div>
 
+        <!-- Error Message Section -->
         <div id="errorMessage" style="display:none; color: red;">
             <p>City not found. Please try again.</p>
         </div>
+
+        <!-- Forecast section -->
+        <div id="forecast" class="forecast"></div>
     </div>
 
     <script src="/static/app.js"></script>
 </body>
 </html>
+
+
+
+
+
 
 
     

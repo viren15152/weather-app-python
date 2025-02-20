@@ -1,7 +1,8 @@
-from flask import Flask, render_template, jsonify, request
 import os
-from dotenv import load_dotenv
 import requests
+from flask import Flask, render_template, jsonify, request
+from dotenv import load_dotenv
+from datetime import datetime
 
 # Initialize Flask
 app = Flask(__name__)
@@ -21,6 +22,7 @@ def get_weather(city):
         main = data['main']
         weather = data['weather'][0]  # List of weather conditions
         icon_code = weather['icon']  # Get the icon code
+        coordinates = data['coord']  # Get the coordinates (latitude and longitude)
 
         # Return current weather data, including the unit (°C)
         return {
@@ -28,7 +30,9 @@ def get_weather(city):
             'feels_like': main['feels_like'],
             'description': weather['description'],
             'icon_code': icon_code,
-            'unit': '°C'  # Include unit for temperature
+            'unit': '°C',  # Include unit for temperature
+            'lat': coordinates['lat'],
+            'lon': coordinates['lon']
         }
     else:
         return None
@@ -60,6 +64,20 @@ def get_forecast(city):
     else:
         return None
 
+# Function to format date to UK format (DD/MM/YYYY)
+def format_date_uk(date_string):
+    date = datetime.strptime(date_string, "%Y-%m-%d")
+    weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    day_of_week = weekdays[date.weekday()]
+    day = str(date.day).zfill(2)
+    month = str(date.month).zfill(2)
+    year = date.year
+    return f"{day_of_week}, {day}/{month}/{year}"
+
+# Function to capitalize weather descriptions
+def capitalize_description(description):
+    return description.title()
+
 # Route to serve the main page
 @app.route('/')
 def home():
@@ -78,6 +96,10 @@ def weather():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+
+
 
 
 
