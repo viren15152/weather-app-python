@@ -8,16 +8,22 @@
 </head>
 <body>
     <div class="container">
-        <h1>Weather App</h1>
+        <h1>Weather Dashboard</h1>
         <input type="text" id="city" placeholder="Enter city" />
         <button id="getWeather">Get Weather</button>
-        
+
         <div id="weatherInfo" style="display:none;">
-            <h3>Weather Details:</h3>
-            <p id="temperature"></p>
-            <p id="description"></p>
-            <p id="pressure"></p>
-            <p id="humidity"></p>
+            <div class="weather-card">
+                <h2 id="currentTemp">12.6°</h2>
+                <p id="description">Overcast Clouds</p>
+                <p id="feelsLike">Feels Like 12.27°</p>
+                <img id="weatherIcon" src="" alt="Weather Icon" />
+            </div>
+
+            <!-- Display forecast dynamically in cards -->
+            <div id="forecast">
+                <!-- Forecast data will be inserted dynamically -->
+            </div>
         </div>
 
         <div id="errorMessage" style="display:none; color: red;">
@@ -28,3 +34,6 @@
     <script src="/static/app.js"></script>
 </body>
 </html>
+
+
+    

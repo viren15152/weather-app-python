@@ -1,3 +1,4 @@
+/* Global reset and basic styles */
 * {
     margin: 0;
     padding: 0;
@@ -5,60 +6,183 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-image: url('/static/background.png'); /* Background image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    padding: 20px;
 }
 
 .container {
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px;
     text-align: center;
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    box-sizing: border-box;
 }
 
 h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 36px;
+    font-weight: bold;
+    color: #0cb7ea; /* Blue color */
+    margin-bottom: 20px;
 }
 
 input[type="text"] {
-    padding: 8px;
-    margin-bottom: 10px;
-    width: 80%;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    padding: 12px;
+    width: 70%;
+    border: 2px solid #0cb7ea; /* Blue border */
+    border-radius: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
 }
 
 button {
-    padding: 8px;
-    border-radius: 5px;
-    background-color: #4CAF50;
+    padding: 12px 30px;
+    background-color: #0cb7ea; /* Blue button */
     color: white;
     border: none;
+    border-radius: 10px;
     cursor: pointer;
+    font-size: 18px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #2563EB; /* Lighter blue for hover effect */
 }
 
 #weatherInfo {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
-#weatherInfo p {
-    font-size: 16px;
+#currentTemp {
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333; /* Dark gray for contrast */
+}
+
+#description {
+    font-size: 20px;
+    color: #555;
+}
+
+#feelsLike {
+    font-size: 18px;
+    color: #777;
+}
+
+#weatherIcon {
+    margin-top: 15px;
+    width: 80px;
+    height: 80px;
 }
 
 #errorMessage {
     display: none;
-    color: red;
-    font-size: 14px;
+    color: #ff4d4d; /* Red for errors */
+    font-size: 16px;
 }
+
+/* Forecast Styling */
+#forecast {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.forecast-card {
+    background-color: #ffffff;
+    font-family: 'lucida sans unicode', 'lucida grande', sans-serif;
+    font-weight: bold;
+    color: grey;
+    border-radius: 10px;
+    padding: 20px;
+    width: 18%;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.forecast-card img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.forecast-card p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.forecast-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.forecast-card:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Weather Cards */
+.weather-card {
+    background-color: #0cb7ea; /* Blue background */
+    color: black;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #forecast {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .forecast-card {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    input[type="text"], button {
+        width: 90%;
+    }
+
+    .container {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    #currentTemp {
+        font-size: 48px;
+    }
+
+    .forecast-card {
+        width: 100%;
+    }
+}
+
