@@ -34,6 +34,7 @@ body {
 
 h1 {
     font-size: 36px;
+    font-family: 'Poppins', sans-serif;
     font-weight: bold;
     color: #333; /* Dark gray for contrast */
     margin-bottom: 20px;
