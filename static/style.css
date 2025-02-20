@@ -11,7 +11,7 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    color: #fff;
+    color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,7 +35,7 @@ body {
 h1 {
     font-size: 36px;
     font-weight: bold;
-    color: whitesmoke;
+    color: #333; /* Dark gray for contrast */
     margin-bottom: 20px;
 }
 
@@ -51,7 +51,7 @@ input[type="text"] {
 
 button {
     padding: 12px 30px;
-    background-color: rgb(64, 173, 64); /* Blue button */
+    background-color: #333; 
     color: white;
     border: none;
     border-radius: 10px;
@@ -101,7 +101,7 @@ button:hover {
 }
 
 .forecast-card {
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.828);
     font-weight: bold;
     color: #333;
     border-radius: 10px;
@@ -145,7 +145,7 @@ button:hover {
 /* Weather Box Styling */
 .weather-box {
     flex: 1;
-    max-width: 45%;
+    max-width: 65%;
 }
 
 /* Map Styling */
@@ -181,18 +181,27 @@ button:hover {
     }
 
     .main-content {
-        flex-direction: column;
+        flex-direction: column;  /* Stack weather and map sections */
         align-items: center;
     }
 
     .weather-box, .map-box {
         max-width: 100%;
     }
+
+    h1 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .container {
+        width: 100%;
+    }
 }
 
 @media (max-width: 480px) {
     h1 {
-        font-size: 28px;
+        font-size: 24px;
     }
 
     #currentTemp {
@@ -203,6 +212,7 @@ button:hover {
         width: 100%;
     }
 }
+
 
 
 
